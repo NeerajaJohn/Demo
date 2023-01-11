@@ -14,3 +14,4 @@ if lower(AWGN_or_Rayleigh(1))=='a'
 else
     rn= b*10.^(EbN0dB/10)/2; ber = 0.5*a*(1-sqrt(rn./(rn+1)));
 end
+%printf
