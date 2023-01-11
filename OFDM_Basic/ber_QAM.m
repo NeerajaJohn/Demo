@@ -16,6 +16,16 @@ else
 end
 
 
+
+
+
+function ber=ber_QAM(EbN0dB,M,AWGN_or_Rayleigh)
+% Find ananlytical BER of Mary QAM in AWGN or Rayleigh channel
+% EbN0dB=EbN0dB: Energy per bit-to-noise power[dB] for AWGN channel
+%       =rdB: Average SNR(2*sigma Eb/N0)[dB] for Rayleigh channel
+% M = Modulation order (Constellation size)  
+
+
 N= length(EbN0dB);  sqM= sqrt(M); 
 a= 2*(1-power(sqM,-1))/log2(sqM); 
 b= 6*log2(sqM)/(M-1);
@@ -25,5 +35,8 @@ if lower(AWGN_or_Rayleigh(1))=='a'
 else
     rn= b*10.^(EbN0dB/10)/2; ber = 0.5*a*(1-sqrt(rn./(rn+1)));
 end
+
+
+
 
 
